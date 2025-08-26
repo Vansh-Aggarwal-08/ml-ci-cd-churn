@@ -1,4 +1,4 @@
-dimport pandas as pd
+import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
@@ -29,4 +29,4 @@ model = RandomForestClassifier(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
 
 # Save the model
-joblib.dump(model,'models/churn_model.pkl')
+joblib.dump(model,'model/churn_model.pkl')
