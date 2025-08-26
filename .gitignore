@@ -1,0 +1,21 @@
+#python cache 
+_pycache_/
+*.pyc
+*.pyo
+*.pyd
+
+#virtual enviorment 
+venv/
+env/
+
+#data and models (large_files)
+data/
+models/
+
+#os files
+.DS_Store
+Thumbs.db
+
+#IDE settings
+.vscode/
+.idea/
