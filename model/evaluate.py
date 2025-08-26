@@ -5,7 +5,7 @@ from sklearn.preprocessing import LabelEncoder
 import joblib
 
 # Load dataset
-data = pd.read_csv("WA_Fn-UseC_-Telco-Customer-Churn.csv")
+data = pd.read_csv('data/WA_Fn-UseC_-Telco-Customer-Churn.csv')
 
 # Drop customerID (not useful for prediction)
 data = data.drop("customerID", axis=1)
