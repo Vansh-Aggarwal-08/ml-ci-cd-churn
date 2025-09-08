@@ -13,7 +13,7 @@ data = data.drop("customerID", axis=1)
 # Encode target variable
 data["Churn"] = data["Churn"].map({"Yes": 1, "No": 0})
 
-# Encode categorical variables (Label Encoding for simplicity)
+# Encode categorical variables 
 cat_cols = data.select_dtypes(include=["object"]).columns
 for col in cat_cols:
     le = LabelEncoder()
@@ -23,10 +23,8 @@ for col in cat_cols:
 X = data.drop("Churn", axis=1)
 y = data["Churn"]
 
-# Train-test split (same as training script)
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42, stratify=y
-)
+# Train-test split 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42,)
 
 # Load the saved model
 model = joblib.load("model/churn_model.pkl")
@@ -38,6 +36,6 @@ y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Model accuracy: {accuracy:.2f}")
 
-# Extra: Show classification report (precision, recall, f1)
+# Extra: Show classification report 
 print("\nClassification Report:")
 print(classification_report(y_test, y_pred))

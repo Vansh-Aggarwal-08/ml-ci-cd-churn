@@ -11,7 +11,7 @@ class TestChurnModelTraining(unittest.TestCase):
         self.assertIsInstance(model, RandomForestClassifier)
 
         # Check it has learned feature importances
-        self.assertGreaterEqual(len(model.feature_importances_), 10)  # Telco has many features
+        self.assertGreaterEqual(len(model.feature_importances_), 10)  
 
 if __name__ == "__main__":
     unittest.main()
