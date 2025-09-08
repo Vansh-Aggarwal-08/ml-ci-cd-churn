@@ -8,11 +8,13 @@ MODEL_PATH = os.getenv("MODEL_PATH", "model/churn_model.pkl")
 
 app = Flask(__name__)
 
-# Load model once
-bundle = joblib.load(MODEL_PATH)
-model = bundle["model"]
-encoders = bundle["encoders"]
-feature_cols = bundle["features"]
+# Load once at startup
+try:
+    model = joblib.load(MODEL_PATH)
+except Exception as e:
+    # Fail fast with a helpful message
+    raise RuntimeError(f"Could not load model from {MODEL_PATH}: {e}")
+
 
 @app.route("/health", methods=["GET"])
 def health():
